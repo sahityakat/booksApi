@@ -14,9 +14,18 @@ const typeDefs = gql`
   type Book {
     _id: ID
     bookId: String
-    author: [String]
+    authors: [String]
     description: String
     title: String
+    image: String
+    link: String
+  }
+
+  input saveBookContent {
+    authors:[String]
+    title: String
+    bookId: String
+    description: String
     image: String
     link: String
   }
@@ -24,21 +33,6 @@ const typeDefs = gql`
   type Auth {
     token: ID!
     user: User
-  }
-
-  input saveBookContent {
-    authors:[String]
-    title: String
-    bookId: ID
-    media: [MediaDetails!]
-  }
-  input MediaDetails {
-    format: MediaFormat!
-    url: String!
-  }
-  
-  enum MediaFormat {
-    IMAGE
   }
 
   type Query {
